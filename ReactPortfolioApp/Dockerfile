@@ -6,9 +6,9 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 
-
-# WORKDIR "/src/ReactPortfolioApp"
-# COPY . .
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS publish
+WORKDIR "/src/ReactPortfolioApp"
+COPY . .
 
 
 # FROM build AS publish

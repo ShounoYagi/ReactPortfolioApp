@@ -33,23 +33,32 @@ namespace ReactPortfolioApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            if (Env.IsDevelopment())
-            {
-                services.AddDbContext<ApplicationDbContext>(options =>
-                            options.UseSqlServer(
-                                Configuration.GetConnectionString("DefaultConnection")));
-            }
-            else
-            {
-                var uri = new Uri(Configuration["DATABASE_URL"]);
-                var userInfo = uri.UserInfo.Split(":");
-                (var user, var password) = (userInfo[0], userInfo[1]);
-                var db = Path.GetFileName(uri.AbsolutePath);
+            // if (Env.IsDevelopment())
+            // {
+            //     services.AddDbContext<ApplicationDbContext>(options =>
+            //                 options.UseSqlServer(
+            //                     Configuration.GetConnectionString("DefaultConnection")));
+            // }
+            // else
+            // {
+            //     var uri = new Uri(Configuration["DATABASE_URL"]);
+            //     var userInfo = uri.UserInfo.Split(":");
+            //     (var user, var password) = (userInfo[0], userInfo[1]);
+            //     var db = Path.GetFileName(uri.AbsolutePath);
 
-                var connStr = $"Host={uri.Host};Port={uri.Port};Database={db};Username={user};Password={password};Enlist=true";
-                services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connStr));
-            }
+            //     var connStr = $"Host={uri.Host};Port={uri.Port};Database={db};Username={user};Password={password};Enlist=true";
+            //     services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connStr));
+            // }
 
+
+            //
+            var uri = new Uri(Configuration["DATABASE_URL"]);
+            var userInfo = uri.UserInfo.Split(":");
+            (var user, var password) = (userInfo[0], userInfo[1]);
+            var db = Path.GetFileName(uri.AbsolutePath);
+            var connStr = $"Host={uri.Host};Port={uri.Port};Database={db};Username={user};Password={password};Enlist=true";
+            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connStr));
+            
             // services.AddDbContext<ApplicationDbContext>(options =>
             //     options.UseSqlServer(
             //         Configuration.GetConnectionString("DefaultConnection")));

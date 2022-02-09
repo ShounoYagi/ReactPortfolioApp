@@ -6,14 +6,12 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /src
 
-COPY . .
-WORKDIR "/src/ReactPortfolioApp"
-RUN dotnet build "ReactPortfolioApp.csproj" -c Release -o /app/build
+# WORKDIR "/src/ReactPortfolioApp"
+# COPY . .
 
-FROM build AS publish
+
+# FROM build AS publish
 RUN dotnet publish "ReactPortfolioApp.csproj" -c Release -o /app/publish
 
 FROM base AS final

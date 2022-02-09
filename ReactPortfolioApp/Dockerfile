@@ -5,13 +5,10 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["ReactPortfolioApp/ReactPortfolioApp.csproj", "ReactPortfolioApp/"]
-RUN dotnet restore "ReactPortfolioApp/ReactPortfolioApp.csproj"
+
 COPY . .
 WORKDIR "/src/ReactPortfolioApp"
 RUN dotnet build "ReactPortfolioApp.csproj" -c Release -o /app/build

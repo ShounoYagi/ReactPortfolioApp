@@ -12,7 +12,7 @@ COPY . .
 
 
 # FROM build AS publish
-RUN dotnet publish "ReactPortfolioApp.csproj" -c Release -o /app/publish
+RUN dotnet publish "ReactPortfolioApp.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app

@@ -34,4 +34,4 @@ RUN dotnet publish "ReactPortfolioApp.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-CMD ASPNETCORE_URLS=http://*:process.env.PORT dotnet ReactPortfolioApp.dll
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet /app/publish/ReactPortfolioApp.dll

@@ -30,7 +30,7 @@ export default class App extends Component {
         <Route exact path='/' component={Top} />
         <Route path='/ExamRegister/:id' component={ExamRegister} />
         <Route path='/ExamScreen/:id' component={ExamScreen} />
-        <AuthorizeRoute path='/fetch-data' component={FetchData} />
+        <Route path='/fetch-data' component={FetchData} />
         <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
       </Layout>
     );

@@ -9,7 +9,7 @@ COPY ["ReactPortfolioApp.csproj", "ReactPortfolioApp/"]
 RUN dotnet restore "ReactPortfolioApp/ReactPortfolioApp.csproj"
 COPY . .
 WORKDIR "/src/ReactPortfolioApp"
-RUN dotnet build "ReactPortfolioApp.csproj" -c Release -o /app/build
+# RUN dotnet build "ReactPortfolioApp.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "ReactPortfolioApp.csproj" -c Release -o /app/publish

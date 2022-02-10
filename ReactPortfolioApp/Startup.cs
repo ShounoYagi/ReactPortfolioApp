@@ -57,6 +57,7 @@ namespace ReactPortfolioApp
             (var user, var password) = (userInfo[0], userInfo[1]);
             var db = Path.GetFileName(uri.AbsolutePath);
             var connStr = $"Host={uri.Host};Port={uri.Port};Database={db};Username={user};Password={password};Enlist=true";
+            Console.WriteLine(connStr);
             services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connStr));
             
             // services.AddDbContext<ApplicationDbContext>(options =>

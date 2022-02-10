@@ -56,7 +56,13 @@ namespace ReactPortfolioApp
             var userInfo = uri.UserInfo.Split(":");
             (var user, var password) = (userInfo[0], userInfo[1]);
             var db = Path.GetFileName(uri.AbsolutePath);
-            var connStr = $"Host={uri.Host};Port={uri.Port};Database={db};Username={user};Password={password};Enlist=true";
+            // var connStr = $"Host={uri.Host};Port={uri.Port};Database={db};Username={user};Password={password};Enlist=true";
+            var host = "ec2-54-156-110-139.compute-1.amazonaws.com";
+            var port = "5432";
+            var dbname = "dp4qe5j3dekm9";
+            var username = "rdhvybtgszodxh";
+            var pass = "9995cba1267d8d28baa074f37ba585360eea91b24b6a41073419c560287da938";
+            var connStr = $"Host={host};Port={port};Database={dbname};Username={username};Password={pass};Enlist=true";
             Console.WriteLine(connStr);
             services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connStr));
             

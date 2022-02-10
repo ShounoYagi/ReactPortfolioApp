@@ -9,7 +9,7 @@
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
     <UserSecretsId>948e4248-aa74-4fc8-8aec-068035826cf7</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <OutputType>Library</OutputType>
+    <!-- <OutputType>Library</OutputType> -->
   </PropertyGroup>
 
   <ItemGroup>

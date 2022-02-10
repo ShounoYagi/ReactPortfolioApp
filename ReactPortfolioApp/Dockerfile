@@ -5,7 +5,7 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["ReactPortfolioApp/ReactPortfolioApp.csproj", "ReactPortfolioApp/"]
+COPY ["ReactPortfolioApp.csproj", "ReactPortfolioApp/"]
 RUN dotnet restore "ReactPortfolioApp/ReactPortfolioApp.csproj"
 COPY . .
 WORKDIR "/src/ReactPortfolioApp"
